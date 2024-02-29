@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 
-from models.models import User
+from models.models import User, Feedback
 
 
 app = FastAPI()
