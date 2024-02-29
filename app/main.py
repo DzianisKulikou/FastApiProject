@@ -18,5 +18,13 @@ def read_custom_message():
     return {"message": "This is a custom message!"}
 
 
+first_user = User(name='John Doe', id=1)
+
+
+@app.get("/users", response_model=User)
+def user_root():
+    return first_user
+
+
 if __name__ == "__main__":
-    uvicorn.run("app.main:app", host='127.0.0.1', port=8066, reload=True, workers=3)
+    uvicorn.run("app.main:app", host='127.0.0.1', port=8000, reload=True, workers=3)
