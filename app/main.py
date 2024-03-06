@@ -1,9 +1,8 @@
 import uvicorn
 from fastapi import FastAPI
 
-from models.models import User, Feedback
-from bd.bd import bd_message
-
+from models.models import User, Feedback, UserCreate
+from bd.bd import bd_message, bd_users
 
 app = FastAPI()
 
@@ -32,6 +31,12 @@ first_user = User(name='John Doe', id=1)
 @app.get('/users', response_model=User)
 def user_root():
     return first_user
+
+
+@app.post('/create_user', response_model=UserCreate)
+def create_user(user: UserCreate):
+    bd_users.append(user)
+    return user
 
 
 if __name__ == '__main__':
