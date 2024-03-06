@@ -12,7 +12,7 @@ class Feedback(BaseModel):
     message: str
 
 
-class EndPoint(BaseModel):
+class UserCreate(BaseModel):
     name: str
     email: EmailStr  # Проверка на корректный email
     age: conint(gt=0)  # Проверка на корректный возраст больше 0
